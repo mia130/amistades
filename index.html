@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>¿Estás sol@?</title>
+  <meta charset="UTF-8">
+  <title>No mires atrás...</title>
   <style>
     body {
-      background-color: #1a0000;
-      color: white;
+      background-color: black;
+      color: red;
       text-align: center;
       font-family: 'Courier New', monospace;
       padding: 50px;
+      overflow: hidden;
+      animation: shake 0.5s infinite;
     }
 
     h1 {
       font-size: 3em;
-      animation: flicker 1s infinite;
-      margin-top: 100px;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 1; }
-      50% { opacity: 0.2; }
-      100% { opacity: 1; }
+      margin-top: 150px;
+      animation: glow 1s ease-in-out infinite alternate;
     }
 
     #susto {
       display: none;
       width: 100%;
-      max-width: 700px;
-      margin: 20px auto;
-      border: 5px solid red;
+      max-width: 800px;
+      margin: 30px auto;
+      box-shadow: 0 0 50px red;
     }
 
-    #fondoRojo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background-color: red;
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 999;
+    @keyframes glow {
+      from { text-shadow: 0 0 10px red; }
+      to { text-shadow: 0 0 30px crimson; }
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(2px, -2px); }
+      50% { transform: translate(-2px, 2px); }
+      75% { transform: translate(2px, 2px); }
+      100% { transform: translate(-2px, -2px); }
     }
   </style>
 </head>
 <body>
-  <div id="fondoRojo"></div>
-  <h1 id="titulo">¿Sientes que no estás sol@?</h
+  <h1 id="texto">Estás solo, ¿verdad...?</h1>
+  <img id="susto" src="https://i.imgur.com/jnEINbm.jpg" alt="¡BOO!">
+  <audio id="grito" src="https://www.myinstants.com/media/sounds/movie_1_scream.mp3" preload="auto"></audio>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("texto").innerText = "¡NO ESTÁS SOLO!";
+      document.getElementById("susto").style.display = "block";
+      document.getElementById("grito").play();
+    }, 7000); // Susto a los 7 segundos
+  </script>
+</body>
+</html>
