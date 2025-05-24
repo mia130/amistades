@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>No saldrás...</title>
+  <title>No debiste entrar...</title>
   <style>
     body {
       background-color: black;
-      color: #ff0000;
+      color: crimson;
       font-family: 'Courier New', monospace;
       text-align: center;
       padding: 30px;
@@ -16,7 +16,7 @@
     h1 {
       font-size: 2.5em;
       margin-top: 100px;
-      animation: glitch 1s infinite;
+      animation: glitch 0.8s infinite;
     }
 
     @keyframes glitch {
@@ -30,10 +30,10 @@
     #susto {
       display: none;
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       margin-top: 40px;
-      box-shadow: 0 0 20px red;
-      border: 10px solid darkred;
+      border: 5px solid red;
+      box-shadow: 0 0 40px crimson;
     }
 
     #pantalla {
@@ -43,23 +43,10 @@
       background: red;
       opacity: 0;
       z-index: 999;
-      transition: opacity 0.3s ease-in;
+      transition: opacity 0.4s ease-in;
     }
   </style>
 </head>
 <body>
   <div id="pantalla"></div>
-  <h1 id="mensaje">¿Por qué abriste esto?</h1>
-  <img id="susto" src="https://i.imgur.com/8xOn1VP.gif" alt="Demonio" />
-  <audio id="grito" src="https://www.myinstants.com/media/sounds/scream-1.mp3" preload="auto"></audio>
-
-  <script>
-    setTimeout(() => {
-      document.getElementById("mensaje").innerText = "¡Ya es tarde!";
-      document.getElementById("pantalla").style.opacity = "0.9";
-      document.getElementById("susto").style.display = "block";
-      document.getElementById("grito").play();
-    }, 4000);
-  </script>
-</body>
-</html>
+  <h1 id="mensaje">¿Escuchaste eso
